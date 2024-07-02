@@ -8,7 +8,10 @@ const { Screen, Navigator } = createStackNavigator();
 
 export const SpendStackNavigation = () => {
   return (
-    <Navigator>
+    <Navigator
+      screenOptions={{
+        headerShown: false,
+      }}>
       <Screen component={NewSpend} name="spend/new" />
       <Screen component={SpendList} name="spend/list" />
     </Navigator>
