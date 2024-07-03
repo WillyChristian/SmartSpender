@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
-import { Text, TextInput, useWindowDimensions } from 'react-native';
+import { Text, TextInput, View, useWindowDimensions } from 'react-native';
 import InputProps from './input-types';
-import { input, label as L } from './input-styles';
+import inputStyle from './input-styles';
 
 export const Input: FC<InputProps> = ({
   placeholder,
@@ -10,15 +10,17 @@ export const Input: FC<InputProps> = ({
   onChange,
 }) => {
   const { width } = useWindowDimensions();
+  const { input, labelText, inputContainer } = inputStyle();
+  const halfInput = width / 2 - 40;
 
   return (
-    <>
-      {label && <Text style={L}>{label}</Text>}
+    <View style={inputContainer}>
+      {label && <Text style={labelText}>{label}</Text>}
       <TextInput
-        style={[input, { width: isFullWidth ? undefined : width / 2 }]}
+        style={[input, { width: isFullWidth ? undefined : halfInput }]}
         onChangeText={onChange}
         placeholder={placeholder}
       />
-    </>
+    </View>
   );
 };

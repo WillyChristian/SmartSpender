@@ -1,4 +1,8 @@
-import { ImageStyle, TextStyle, ViewStyle } from 'react-native';
+import {
+  ImageStyle,
+  TextStyle,
+  ViewStyle,
+} from 'react-native';
 
 export enum ButtonTypes {
   PRIMARY = 'primary',
@@ -11,7 +15,8 @@ export type ObjType = ViewStyle | ImageStyle | TextStyle;
 
 export interface ButtonProps {
   label: string;
-  onPress: () => void;
+  hasIcon?: boolean;
   disabled?: boolean;
   type: ButtonTypes;
+  onPress: () => void;
 }
