@@ -3,6 +3,7 @@ import { Text, TextInput, View } from 'react-native';
 import InputProps from './input-types';
 import inputStyle from './input-styles';
 import styleUtilities from '../../utilities';
+import { Colors } from '../../colors';
 
 export const Input: FC<InputProps> = ({
   placeholder,
@@ -20,6 +21,7 @@ export const Input: FC<InputProps> = ({
         style={[input, isFullWidth ? fullWidth : halfWidth]}
         onChangeText={onChange}
         placeholder={placeholder}
+        placeholderTextColor={Colors.PRIMARY_500}
         inputMode={type}
       />
     </View>
