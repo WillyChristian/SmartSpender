@@ -6,7 +6,18 @@ import newStyles from './new.styles';
 import { ButtonTypes } from '../../../theme/components/button/button-types';
 import Icon from '../../../theme/components/icons';
 
-export const NewSpend = () => {
+type NavigationProps = {
+  navigate: (name: string, params?: unknown) => void;
+  route: (path: unknown) => void;
+};
+
+type AddSpendScreenProps = {
+  navigation: NavigationProps;
+};
+
+export const NewSpend: React.FC<AddSpendScreenProps> = ({
+  navigation,
+}) => {
   const {
     container,
     content,
@@ -19,7 +30,7 @@ export const NewSpend = () => {
       <View style={content}>
         <View style={iconContainer}>
           <Icon.MoneySpend />
-          <Text style={iconLabel}>Spend</Text>
+          <Text style={iconLabel}>New Spend</Text>
         </View>
 
         <>
@@ -29,6 +40,7 @@ export const NewSpend = () => {
               label="50 / 50"
               onChange={() => {}}
               isFullWidth={false}
+              type={'none'}
             />
 
             <Input
@@ -36,6 +48,7 @@ export const NewSpend = () => {
               label="50 / 50"
               onChange={() => {}}
               isFullWidth={false}
+              type={'none'}
             />
           </View>
 
@@ -43,17 +56,28 @@ export const NewSpend = () => {
             placeholder="Item 3"
             label="Full Width 1"
             onChange={() => {}}
+            type={'none'}
           />
 
           <Input
             placeholder="Item 4"
             label="Full Width 2"
             onChange={() => {}}
+            type={'none'}
           />
 
           <Button
             label="Submit"
             onPress={() => {}}
+            type={ButtonTypes.PRIMARY}
+            hasIcon
+          />
+
+          <Button
+            label="Navegar"
+            onPress={() =>
+              navigation.navigate('spend/list')
+            }
             type={ButtonTypes.PRIMARY}
             hasIcon
           />

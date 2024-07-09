@@ -11,7 +11,6 @@ export default function newStyles() {
     container: safeArea,
     content: {
       ...screen,
-      gap: 20,
       paddingTop: 90,
     },
     iconContainer: {
